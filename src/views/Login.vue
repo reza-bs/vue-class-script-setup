@@ -15,24 +15,29 @@
 
 import {Vue} from 'vue-class-component'
 
+import { useRouter } from 'vue-router'
 
 export default class Login extends Vue{
+  // constructor(){
+  //   super()
+  //   this.username = 'abc'
+  // }
   username = ''
   password = ''
 
   isLoggedIn = true
 
+  router = useRouter()
+
   checkForm = (e: any)=>{
   
     if(this.password === 'dragon' && this.username === 'Radioactive'){
-      alert("Wrond username or password")
+      alert("successfully signed in")
+      this.router.push('/showusers')
+      
     }
     else{
-      alert("successfully signed in")
-      console.log(this)
-      // console.log(this.$route)
-      // this.$router.push('/')
-      // this.redirect('/')
+      alert("Wrond username or password")
     }
 
   }
